@@ -1,2 +1,2 @@
 # todolist
- a practice demo
+ a practice demo built by basic html/css and vanilla javascript
