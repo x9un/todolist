@@ -1,0 +1,71 @@
+@font-face{
+    font-family: zpix;
+    src:url(./font/zpix.woff2?zpix--local) ;
+}
+
+:root{
+    --error-color:#e74c3c;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #fff;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height:100vh;
+    font-family: zpix;
+    font-size: 18px;
+    font-weight: 1000;
+}
+
+.addContainer{
+    margin:10px 30px 0;
+    width:700px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nes-input{
+    margin-right:20px;
+    outline:0;
+}
+
+.warn{
+    width:700px;
+    margin:0;
+    padding:0 5px 0;
+}
+
+.warn small{
+    color:var(--error-color);
+    visibility:hidden;
+}
+
+.warn.error small{
+    visibility: visible;
+}
+
+.nes-container.is-rounded{
+    margin:0 30px 30px;
+    width:700px;
+}
+
+.list{
+    list-style-type: none;
+    padding:0;
+    margin-bottom:30px;
+}
+
+.list li{
+    margin:0;
+    padding:10px 20px 10px;
+}
+
+.list li:not(:last-of-type){
+    border-bottom: 1px solid #bbb;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="./node_modules/nes.css/css/nes.min.css" rel="stylesheet" >
+        <link href="style.css" rel="stylesheet" />
+        <title>todolist</title>
+    </head>
+    <body>
+        <h1>todolist</h1>
+
+        <div class="addContainer">
+            <input type="text" class="nes-input" id="addList" placeholder="input your todos" />
+            <button class="nes-btn is-primary" id="addBtn">Add</button>
+        </div>
+
+        <div class="warn" id="warn">
+            <small>Please enter your input</small>
+        </div>
+
+        <div class="nes-container is-rounded">
+            <ul id="list" class="list">
+                <!-- <li class="delete">
+                    ...
+                </li> -->
+            </ul>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
