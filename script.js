@@ -75,10 +75,19 @@ function updateLocalStorage(){
     localStorage.setItem('todos',JSON.stringify(todos));
 }
 
+addList.onkeydown = function (event) {
+    var e = event || window.event;
+    if (e && e.keyCode == 13) { //回车键的键值为13
+        addTodos(e);
+    }
+}
+
 function init(){                     
     list.innerHTML=``;
     todos.forEach(addTodosDOM);
 }
 
 init();
+
 addBtn.addEventListener('click',addTodos);
+
