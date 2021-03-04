@@ -20,6 +20,7 @@ body{
     font-family: zpix;
     font-size: 18px;
     font-weight: 1000;
+    scroll-behavior: smooth;
 }
 
 .addContainer{
@@ -53,6 +54,8 @@ body{
 .nes-container.is-rounded{
     margin:0 30px 30px;
     width:700px;
+    height:700px;
+    overflow: scroll;
 }
 
 .list{
@@ -63,9 +66,21 @@ body{
 
 .list li{
     margin:0;
-    padding:10px 20px 10px;
+    padding:20px 10px 5px;
+    display:flex;
+    justify-content: space-between;
+   
 }
 
 .list li:not(:last-of-type){
     border-bottom: 1px solid #bbb;
+}
+
+.nes-icon.close.is-small.nes-pointer{
+    opacity:0;
+    transition: opacity 0.3s ease;
+}
+
+.list li:hover .nes-icon.close.is-small.nes-pointer{
+    opacity: 1;
 }
