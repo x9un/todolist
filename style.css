@@ -84,3 +84,8 @@ body{
 .list li:hover .nes-icon.close.is-small.nes-pointer{
     opacity: 1;
 }
+
+.completed{
+    color:#bbb;
+    text-decoration: line-through solid #bbb 2px;
+}

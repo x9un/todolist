@@ -38,6 +38,7 @@ function generateID(){
 // Add todos to DOM list 
 function addTodosDOM(todo){
     const item=document.createElement('li');
+    if(!todo.status){
     item.innerHTML=`
     <label>
     <input type="checkbox" id="${todo.id}" class="nes-checkbox" onclick="ticked(${todo.id})"/>
@@ -45,21 +46,35 @@ function addTodosDOM(todo){
     </label>
     <i class="nes-icon close is-small nes-pointer" onclick="removeTodo(${todo.id})"></i>
     `;
+    }else{
+    item.innerHTML=`
+    <label>
+    <input type="checkbox" id="${todo.id}" class="nes-checkbox" onclick="ticked(${todo.id})"/>
+    <span class="completed">${todo.text}</span>
+    </label>
+    <i class="nes-icon close is-small nes-pointer" onclick="removeTodo(${todo.id})"></i>
+    `;    
+    }
     list.appendChild(item);
     let elCheckBox=document.getElementById(todo.id);
-    console.log(todo.status);
     if(todo.status){
         elCheckBox.checked=true;
     }
 }
 
-// tick
+// Tick
 function ticked(id){
     todos.forEach((todo) => {
         if(todo.id === id){
-           todo.status= !todo.status;
+            todo.status= !todo.status;
+            let elCheckBox=document.getElementById(id);
+            if(todo.status){
+                elCheckBox.nextElementSibling.classList.add('completed');
+                console.log(elCheckBox.nextElementSibling.classList);
+            }else{
+                elCheckBox.nextElementSibling.classList.remove('completed');
+            }
         }
-        console.log(todo);
     });
     updateLocalStorage();
 }
