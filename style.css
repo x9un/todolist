@@ -21,6 +21,7 @@ body{
     font-size: 18px;
     font-weight: 1000;
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 .addContainer{
@@ -52,9 +53,9 @@ body{
 }
 
 .nes-container.is-rounded{
-    margin:0 30px 30px;
+    margin:0 30px 10px;
     width:700px;
-    height:700px;
+    height:600px;
     overflow: scroll;
 }
 
@@ -88,4 +89,39 @@ body{
 .completed{
     color:#bbb;
     text-decoration: line-through solid #bbb 2px;
+}
+
+.progress{
+    margin:0;
+    padding:0;
+    width:700px;
+    height:700px;
+}
+
+.slider{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    position: absolute;
+    width:700px;
+}
+
+.nes-kirby{
+    margin:0;
+    padding: 0;
+}
+
+.progress progress{
+    margin:0;
+    padding:0;
+    position: relative;
+    left:0px;
+    top:25px;
+    width:570px;
+}
+
+.icons .nes-icon.coin{
+    position: relative;
+    left:30px;
+    opacity: 0;
 }
