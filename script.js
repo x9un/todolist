@@ -4,13 +4,18 @@ const addList = document.getElementById('addList');// 输入框
 const warn = document.getElementById('warn');// 警告信息    
 const checkedbox = document.getElementById('checkbox');//复选框
 const coin = document.getElementById('coin');//金币
-const progress=document.getElementById('progress');//进度条
+const progress=document.getElementById('progress');//进度条标签
 
 const localStorageTodos=JSON.parse(
     localStorage.getItem('todos')
 );
 
+const localStorageProgress=JSON.parse(
+    localStorage.getItem('progress')
+);
+
 let todos=localStorage.getItem('todos') !== null?localStorageTodos:[];
+let progressValue=localStorage.getItem('progress') !== null?localStorageProgress:0;
 
 // Add todos
 function addTodos(e){
@@ -28,7 +33,6 @@ function addTodos(e){
         todos.push(todo);
         addTodosDOM(todo);
         updateLocalStorage();
-        progressUpdate();
         addList.value='';// clear
     }
 }
@@ -82,16 +86,12 @@ function ticked(id){
                     // timing options
                     duration: 500,
                   });
-                //coin.classList.add('active');
-                //setTimeout(()=>coin.classList.remove('active'),500);
             }else{
                 elCheckBox.nextElementSibling.classList.remove('completed');
-                //coin.classList.remove('active');
             }
         }
     });
     updateLocalStorage();
-    progressUpdate();
 }
 
 
@@ -100,25 +100,24 @@ function removeTodo(id){
     todos=todos.filter(todo => todo.id !== id);
     updateLocalStorage();
     init();
-    progressUpdate();
 }
 
 //progressUpdate
 function progressUpdate(){
-    let todoUpdate=localStorage.getItem('todos') !== null?localStorageTodos:[];
     let todoChecked=0;
-    todoUpdate.forEach(todo=>{
+    todos.forEach(todo=>{
         if(todo.status){
             todoChecked++;
-        }
+        } 
     })
-    let itemValue= todoChecked/todoUpdate.length *100;
-    progress.setAttribute('value',itemValue);
-    
+    progressValue=todoChecked/todos.length *100;
+    localStorage.setItem('progress',JSON.stringify(progressValue));
+    progress.setAttribute('value',progressValue);
 }
-
+  
 function updateLocalStorage(){
     localStorage.setItem('todos',JSON.stringify(todos));
+    progressUpdate();
 }
 
 addList.onkeydown = function (event) {
@@ -134,5 +133,6 @@ function init(){
 }
 
 init();
+progressUpdate();
 
 addBtn.addEventListener('click',addTodos);

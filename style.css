@@ -6,9 +6,11 @@
 :root{
     --error-color:#e74c3c;
 }
+
 *{
     box-sizing: border-box;
 }
+
 body{
     background-color: #fff;
     margin:0;
@@ -21,7 +23,11 @@ body{
     font-size: 18px;
     font-weight: 1000;
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow: auto;
+}
+
+body.dark-theme{
+    background-color: #fff;
 }
 
 .addContainer{
@@ -30,7 +36,9 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
+    
 }
+
 
 .nes-input{
     margin-right:20px;
@@ -56,7 +64,8 @@ body{
     margin:0 30px 10px;
     width:700px;
     height:600px;
-    overflow: scroll;
+    overflow: auto;
+    
 }
 
 .list{
@@ -95,7 +104,7 @@ body{
     margin:0;
     padding:0;
     width:700px;
-    height:700px;
+    height:150px;
 }
 
 .slider{
@@ -104,6 +113,7 @@ body{
     justify-content: space-between;
     position: absolute;
     width:700px;
+    
 }
 
 .nes-kirby{
@@ -118,6 +128,7 @@ body{
     left:0px;
     top:25px;
     width:570px;
+    
 }
 
 .icons .nes-icon.coin{
@@ -125,3 +136,4 @@ body{
     left:30px;
     opacity: 0;
 }
+
